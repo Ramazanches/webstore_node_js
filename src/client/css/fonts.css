@@ -1,0 +1,34 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url("../fonts/Roboto/Roboto-Regular.ttf") format('trueType');
+}
+
+@font-face {
+	font-family:Ubuntu;
+	font-style:normal;
+	font-weight:400;
+	src:local("Ubuntu"),url(../fonts/ubuntu-regular-webfont.woff2) format("woff2")
+}
+@font-face{
+	font-family:Ubuntu;
+	font-style:normal;
+	font-weight:300;
+	src:local("Ubuntu"),url(../fonts/ubuntu-light-webfont.woff2) format("woff2")
+}
+@font-face{
+	font-family:Ubuntu;
+	font-style:normal;
+	font-weight:700;
+	src:local("Ubuntu"),url(../fonts/ubuntu-bold-webfont.woff2) format("woff2")
+}
+@font-face{
+	font-family:Raleway;
+	font-style:normal;
+	font-weight:400;
+	src:local("Raleway"),url(../fonts/raleway-regular-webfont.woff2) format("woff2")
+}
+@font-face{font-family:Raleway;
+	font-style:normal;
+	font-weight:700;
+	src:local("Raleway"),url(../fonts/raleway-bold-webfont.woff2) format("woff2")
+}

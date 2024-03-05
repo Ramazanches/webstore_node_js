@@ -1,0 +1,56 @@
+<div class="sign">
+	<h1 class="sign__title">{{title}}</h1>
+	<form name="signup_form">
+		<input type="text" autocomplete="true" name="email">
+		<input type="password" autocomplete="true" name="password">
+		<button type="submit" class="signup-btn">Зарегистрировать</button>
+	</form>
+	
+	<p class="sign__text">Уже зарегистрированы?</p> 
+	<a href="/auth/signin" class="sign__link">Тогда не теряйте время!</a>
+	<p class="sign__text">Welcome!!!</p>		
+
+
+	<button class="info" id="roleInfo"></button>
+
+	<button id="role" class="role">Добавить роли в БД</button>	
+
+</div>
+
+
+{{> css/formStyles}}
+
+<script>
+// document.addEventListener("DOMContentLoaded", () => {
+
+// 	const form = document.forms['signup_form']
+// 	form.addEventListener('submit', async (e) => {
+// 		try {
+// 			e.preventDefault()
+// 			const arr = []
+// 			for (let item of new FormData(form)) {
+// 				arr.push(item)
+// 			}
+// 			const data = JSON.stringify(Object.fromEntries(arr))
+// 			const email = form.elements[0].value
+// 			const redirect = (url) => window.location.href = url
+
+// 			await fetch('/auth/registration', {
+// 				method: 'POST',
+// 				body: data,
+// 				headers: {
+// 					'Accept': 'application/json',
+// 					'Content-Type': 'application/json'
+// 				}
+// 			})
+// 			.then(res => redirect('/home'))
+						
+// 		} catch (e) {
+// 			console.warn(e)
+// 		}
+
+// 	})
+
+// });
+
+</script>
