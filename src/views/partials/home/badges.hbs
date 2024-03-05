@@ -1,0 +1,55 @@
+{{#each home7}}
+	<div class="badge">
+		<h5 class="badge__title _anim-scroll">{{this.badgesTitle}}</h5>
+		<div 
+			data-category="{{this.badgesPath}}"
+			class="badge__item _anim-scroll" 
+			data-img={{this.badgesPath}}>
+		</div>
+	</div>
+{{/each}}
+
+<style>	
+  .badge {
+    display: grid;
+    justify-content: center;
+    row-gap: var(--inner-lg);
+    overflow: hidden;
+  }
+  .badge__title {
+    position: relative;
+    margin: 0;  
+    color: #b1b1b1;
+    text-align: center;
+    font-size: var(--h5);
+    line-height: var(--h5_h);
+    transform: translateX(-200px) scale(0);
+    opacity: 0;
+    transition: all 1s ease 0s;
+  }
+  .badge__title._active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  .badge__item {
+    position: relative;
+    width: var(--badgeSize);
+    height: var(--badgeSize);
+    background-position: 0 center !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% !important;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 1s ease 0s;
+    cursor: pointer;
+  }
+  .badge__item._active {
+    transform: scale(1) rotate(360deg);
+  }
+  @media (max-width: 375px) {
+    .badge__item {
+      width: 125px;
+      height: 125px;
+    }
+  }
+</style>

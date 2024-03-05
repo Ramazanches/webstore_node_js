@@ -1,0 +1,20 @@
+
+<div class="item__price price__item">
+	{{#if this.price}}
+		<div class="price__current">
+			<div class="price__current__text _anim-scroll _anim-static">{{this.price}}</div>
+			<i class="price__current__icon" id="rub"></i>
+		</div>
+	{{/if}}
+	{{#if this.prevPrice}}
+		<div class="price__prev _anim-scroll _anim-static">
+			<span class="price__prev__text">{{this.prevPrice}}</span>
+			<i class="price__prev__icon" id="rub"></i>
+		</div>
+		<div class="price__discount">
+			<span class="price__discount__text" id="disCount"></span>
+		</div>
+	{{/if}}
+</div>
+
+

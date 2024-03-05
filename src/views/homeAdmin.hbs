@@ -1,0 +1,658 @@
+{{> css/adminStyles}}
+
+<div data-url="/admin/home/"></div>
+
+<div class="wrapper" id='admin' data-spollers data-one-spoller>
+
+	<h1>Страница Home</h1>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Теги в head</h2>
+		<table data-table="home1" class="table table-bordered" data-table="">
+			<tr>
+				<th>ID</th>
+				<th data-name="desc">Описание</th>
+				<th data-name="title">Содержимое Title</th>
+			</tr>
+			{{#each home1}}
+			<tr>
+				<td><input value="{{this._id}}"></td>
+				<td><input name="desc" value="{{this.desc}}"></td>
+				<td><input name="title" value="{{this.title}}"></td>
+			</tr>		
+			{{/each}}	
+		</table>	
+	</div>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Общие скрипты</h2>
+		<table data-table="home2" class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th data-name="gsap">Подключаемые скрипты</th>
+			</tr>
+			{{#each home2}}
+			<tr>
+				<td><input value="{{this._id}}"></td>
+				<td><input name="gsap" value="{{this.gsap}}"></td>				
+			</tr>
+			{{/each}}
+		</table>
+	</div>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Секция 1(Баннер)</h2>
+		<table data-table="home3" class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th data-name="bannerTitle">Заголовок</th>
+				<th data-name="bannerSubtitle">Подзаголовок</th>
+				<th data-name="buttonText">Текст кнопки</th>
+			</tr>	
+			{{#each home3}}		
+			<tr>
+				<td><input value="{{this._id}}"></td>
+				<td><input name="bannerTitle" value="{{this.bannerTitle}}"></td>
+				<td><input name="bannerSubtitle" value="{{this.bannerSubtitle}}"></td>
+			</tr>	
+			{{/each}}
+		</table>
+	</div>
+
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Навигация</h2>
+		<table data-table="home4" class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th data-name="linkContent">Содержимое ссылки</th>		
+				<th data-name="linkGoto">Ссылка</th>
+				<th data-name="linkGoto">Выпадающее меню</th>
+			</tr>
+			{{#each home4}}
+			<tr>
+				<td><input value="{{this._id}}"></td>
+				<td><input name="linkContent" value="{{this.linkContent}}"></td>
+				<td><input name="linkHref" value="{{this.linkHref}}"></td>
+				<td><input name="subMenu" value="{{this.subMenu}}"></td>
+			</tr>
+			{{/each}}
+		</table>	
+	</div>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Выпадающее меню {{this.content}}</h2>	
+		<table data-table="home5" class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th data-name="sublinkHref">Ссылка</th>
+				<th data-name="sublinkContent">Содержимое ссылки</th>
+			</tr>
+			{{#each home5}}
+				<tr>
+					<td><input value="{{this._id}}"></td>
+					<td><input name="sublinkHref" value="{{this.sublinkHref}}"></td>
+					<td><input name="sublinkContent" value="{{this.sublinkContent}}"></td>
+				</tr>	
+			{{/each}}
+		</table>		
+	</div>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Секция 1 (Cлайдер)</h2>
+		<table data-table="home6" class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th data-name="slidesPath">Изображение</th>
+				<th data-name="slidesTitle">Заголовок слайда</th>
+			</tr>
+			{{#each home6}}
+				<tr>
+					<td><input value="{{this._id}}"></td>
+					<td><input name="slidesPath" value="{{this.slidesPath}}"></td>
+					<td><input name="slidesTitle" value="{{this.slidesTitle}}"></td>
+				</tr>
+			{{/each}}
+		</table>		
+	</div>
+
+	<div class="table-container" id="wrapper">
+		<h2 tabindex="-1" data-spoller>Секция 2 (Значки)</h2>
+		<table data-table="home7" class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<th data-name="badgesPath">Путь изображения</th>
+					<th data-name="badgesTitle">Заголовок изображения</th>
+				</tr>
+			{{#each home7}}
+				<tr>
+					<td><input value="{{this._id}}"></td>
+					<td><input name="badgesPath" value="{{this.badgesPath}}"></td>
+					<td><input name="badgesTitle" value="{{this.badgesTitle}}"></td>
+				</tr>
+			{{/each}}			
+		</table>	
+	</div>	
+</div>
+
+
+<!-- <script>
+	
+let URL = document.querySelector('[data-url]').dataset.url
+const reload = () => setTimeout( () => location.reload(), 2000);
+
+class AJAX {
+	constructor (config) {
+		this.config = config
+		this.url = this.config.url
+		this.method = this.config.method
+		this.headers = this.config.headers
+		this.data = this.config.data
+	}
+	async request () {
+		let method, headers, data, res
+
+		if (!this.url) console.log('Not found URL')
+		// this.setHeaders(headers)
+		if (this.method) method = this.method 
+		if (this.headers) headers = this.headers
+		else headers = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
+		console.log(this.url)
+		console.log(this.method)
+		console.log(this.headers)
+		console.log(headers)
+		console.log(this.data)
+
+		if (this.data) {
+			data = {
+				method: method,
+				headers: headers,
+				body: JSON.stringify(this.data)
+			}
+		}
+		else {
+			data = {
+				method: method,
+				headers: headers,
+			}
+		}
+		res = await fetch(this.url, data)
+		console.log(res)
+
+		if (res.ok) res.json() 
+		if (res.status != 200) {
+			throw new Error(res.statusText) 
+		}	
+	}
+}
+
+class requestData {
+	constructor (e, url) {
+		this.tr = e.target.parentElement.parentElement
+		this.cells = this.tr.querySelectorAll('td')	//put	
+		this.table = this.tr.parentElement.parentElement
+		this.id = this.table.querySelector('input').value
+		this.attr = this.table.dataset.table
+		this.prev = e.target.previousElementSibling //post
+		this.postAttr = e.target.dataset.table //post
+		this.url = url
+		this.arr = []
+	}
+	post (e) {
+		e.preventDefault()
+		try {
+			let arr, table, data, inputs
+			arr = []
+			table = ['table', this.postAttr]
+			inputs = this.prev.querySelectorAll('input')
+
+			if (inputs.length > 0) {
+				inputs.forEach( inp => {
+					let entry = []
+					entry.push(inp.name, inp.value)
+					arr.push(entry)
+				})
+			}
+			arr.push(table)
+			data = {
+				url: this.url,
+				method: 'POST',
+				data: Object.fromEntries(arr)
+			}
+			console.log(data)
+			new AJAX(data).request()
+		} 
+		catch (e) { console.log(e) }
+	}
+	put (e) {
+		e.preventDefault()
+		try {
+			if (this.cells) {
+				for (let i = 1; i < this.cells.length; i++) {
+					const inp = this.cells[i].children[0],
+								val = inp.value,
+								name = inp.name,
+								arr = []
+					if (inp && inp.tagName === 'INPUT') {
+						if (name) arr.push(name)
+						if (arr.length < 2 && val) {
+							typeof val === 'number' ? arr.push(+val) : arr.push(val)
+						}
+						if (!arr.length) arr.remove()
+						this.arr.push(arr)
+					}
+				}
+			} 
+			else console.log('not found cells')
+
+			let id = ['_id', this.id],
+					table = ['table', this.attr],
+					data
+
+			this.arr.push(id, table)
+			data = {
+				url: this.url + this.id,
+				method: 'PUT',
+				data: Object.fromEntries(this.arr)				
+			}
+			console.log(data)
+			new AJAX(data).request()
+		} 
+		catch (e) { console.log(e) }
+	}
+	delete (e) {
+		e.preventDefault()
+		this.arr.push(['table', this.attr])		
+		let data = {
+			url: this.url + this.id,
+			method: 'DELETE',
+			data: Object.fromEntries(this.arr)
+		}
+		new AJAX(data).request()
+	}
+}
+
+
+class createNode {
+	constructor (node, config) {
+		this.node = node
+		this.cls = config.cls
+		this.id = config.id
+		this.text = config.text
+		this.parent = config.parent
+		this.wrapper = config.wrapper
+		this.attr = config.attributes
+	}
+	setAttributes (el, arr) {
+		if (arr.length > 0) {
+			arr.forEach( entry => {
+				el.setAttribute(entry[0], entry[1])
+			})	
+		}
+		else console.log('error in attributes')
+	}
+	setClass (el, cls) {
+		if (cls instanceof Array && cls.length > 0) {
+			for (let i = 0; i < cls.length; i++) {
+				el.classList.add(cls[i])
+			}
+		}
+		else el.className = cls
+	}
+	generate (el) { 
+		if (this.id) el.id = this.id
+		if (this.text) el.innerHTML = this.text
+		if (this.cls) this.setClass(el, this.cls)
+		if (this.attr) {
+			const arr = Object.entries(this.attr)
+			this.setAttributes(el, arr)
+		}
+	}
+	add (p, el, w) {	
+		if (w) {
+			let wrap = document.createElement(w)
+			this.generate(el)
+			wrap.append(el)
+			p.append(wrap)
+		}
+		else {
+			this.generate(el)
+			p.append(el) 
+		}
+	}
+
+	init () {
+		try {
+			const p = this.parent,
+						w = this.wrapper,
+						n = this.node
+			if (this.node) {
+				const el = document.createElement(this.node)
+				if (el) {
+					if (p && !w) this.add(p, el) 
+					if (p && w) this.add(p, el, w) 
+					if (!p) {
+						this.generate(el)
+						return el
+					}				
+				}
+			}
+			else	console.log('not found node')
+		} 
+		catch (e) { 
+			console.warn(e) 
+		}
+	}
+}
+//добавление элемента к родителю с оберткой
+class addNodes {
+
+	constructor (element, config) {
+		this.parent = config.parent 
+		this.wrapper = config.wrapper
+		this.element = element
+	}
+
+	wrap (parent) {
+		const wrap = document.createElement('td')
+		wrap.append(this.element)
+		parent.append(wrap)
+	}
+
+	appendToParent (parents) {
+		parents.forEach( parent => {
+			if (parent.children.length > 1 && this.element) {
+				for (let i = 1; i < parent.children.length; i++) {
+					const td = parent.children[i]
+					this.wrapper ? this.wrap(td) : td.append(this.element)
+				}		
+			}	
+		})
+	}
+
+	init () {
+		if (this.parent && typeof this.parent === 'string') {
+			const parents = document.querySelectorAll(this.parent)
+			if (parents.length > 0) this.appendToParent(parents)
+		}
+		else console.log('not found parent')
+	}
+}
+
+class addClass {
+	constructor (element, config) {
+		this.element = element
+		this.config = config
+	}
+	setClass (nodes, cls) {
+		if (nodes && nodes.length > 0) {
+			nodes.forEach( node => node.classList.add(cls))
+		}
+	}		
+	getClasses (n, cls) {
+		const nodes = document.querySelectorAll(n)
+		if (cls instanceof Array) {
+			cls.forEach( _cls => this.setClass(nodes, _cls))
+		}	
+		else this.setClass(nodes, cls)
+	}
+	init () {
+		if (this.element !== null && !this.config) {
+			if (this.element instanceof Object) {
+				this.getClasses(this.element.selector, this.element.cls)
+			}			
+		}
+		if (typeof this.element === 'string' && this.config !== null) {
+			if (typeof this.config === 'string') {
+				this.getClasses(this.element, this.config)
+			}
+			if(this.config instanceof Object) {
+				this.getClasses(this.element, this.config.cls)
+			}
+			if(this.config instanceof Array) {
+				this.getClasses(this.element, this.config)
+			}
+		}
+	}
+}
+class addAttribute {
+	constructor (element, config) {
+		this.element = element
+		this.config = config
+	}
+	setAttributes (node, name, value) {
+		node.setAttribute(name, value)
+	}		
+	getAttributes (n, attr) {
+		const nodes = document.querySelectorAll(n)
+		if (nodes.length > 0) {
+			nodes.forEach( node => {
+				if (attr instanceof Object) {
+					const arr = Object.entries(attr)
+					for (let i = 0; i < arr.length; i++) {
+						this.setAttributes(node, arr[i][0], arr[i][1])						
+					}
+				}	
+				if (attr instanceof Array) {
+					attr.forEach( obj => {
+						node.setAttribute(obj.name, obj.value)
+					})
+				}
+			})
+		}
+	}
+	init () {
+		if (this.element !== null) {
+			if (!this.config && this.element instanceof Object) {
+				this.getAttributes(this.element.selector, this.element.attributes)
+			}
+
+			if (typeof this.element === 'string' && this.config !== null) {
+				this.getAttributes(this.element, this.config)
+			}			
+		}
+	}
+
+}
+
+new addAttribute('input', {'autocomplete': 'true'}).init()
+
+
+const addButtonsToTable = () => {
+	const tbodies = document.querySelectorAll('tbody')
+	if (tbodies.length > 0) {
+		tbodies.forEach( tbody => {
+			for (let i = 	1; i < 	tbody.children.length; i++) {
+				new createNode('button', {
+					cls: ['btn', 'btn-sm', 'btn-info', 'w-100'],
+					id: 'editUser', 
+					wrapper: 'td', 
+					text: 'Редактировать',
+					parent: tbody.children[i]
+				}).init()
+				new createNode('button', {
+					cls: ['btn', 'btn-sm', 'btn-danger', 'w-100'],
+					id: 'deleteUser', 
+					wrapper: 'td', 
+					text: 'Удалить',
+					parent: tbody.children[i]
+				}).init()							
+			}
+		})
+	}
+}
+
+const closeAll = (n) => {
+	const nodes = document.querySelectorAll(n)				
+	if (nodes.length > 0) {
+		nodes.forEach( node => node.remove() )
+	}				
+}
+
+const addButtons = (w) => {
+	try {
+		const wrap = document.querySelectorAll(w)
+		if (wrap.length > 0) {
+			for (let i = 0; i < wrap.length; i++) {
+				new createNode('button', {
+					cls: 'open_admin',
+					id: 'add',
+					text: 'Добавить',
+					parent: wrap[i],
+					attributes: {
+						'data-visible': 'false',
+						'data-num': i + 1
+					}
+				}).init()						
+			}
+		}
+	} catch (e) { console.log(e) }
+}
+
+class toggleForm {
+
+	constructor (e) {
+		this.formId = '#form'
+		this.form = document.querySelector('#form')
+		this.t = e.target
+		this.thead = e.target.parentElement.querySelectorAll('th')
+		this.table = e.target.previousElementSibling
+		this.buttons = document.querySelectorAll('#add')
+		this.v = this.t.dataset.visible		
+	}
+	
+	createForm () {
+		new createNode('form', {
+			cls: '_none w-50 mx-5 d-flex flex-colum',
+			id: 'form',
+			parent: document.body
+		}).init()			
+	}
+
+	createInputs (form) {
+		if (this.thead) {
+			for (let i = 1; i < this.thead.length; i++) {
+				const th = this.thead[i]
+				console.log(th)
+				if (th.dataset.name) {
+					const group = document.createElement('div')
+					group.className = 'input-group'
+					const label = new createNode('label', {
+						cls: 'form-control fw-bold',
+						text: th.textContent,
+						parent: group,
+						attributes: {'for': th.dataset.name}
+					}).init()
+					const input = new createNode('input', {
+						cls: 'form-control',
+						id: th.dataset.name,
+						parent: group,
+						attributes: {name: th.dataset.name}
+					}).init()
+					form.append(group)	
+				}
+			}			
+		}
+	}
+	createFormButton (form) {
+		new createNode('button', {
+			cls: 'btn btn-outline-primary mt-4',
+			id: 'postUser',
+			text: 'Сохранить',
+			parent: form,
+			attributes: {
+				'data-table': this.table.dataset.table
+			}
+		}).init()	
+	}
+
+	buttonsOff = (v, form) => {
+		v = 'true'	
+		if (!form.classList.contains('_none')) {
+			form.classList.add('_none')		
+		}
+		if (this.buttons.length > 0) {
+			this.buttons.forEach( btn => {
+				let visible = btn.dataset.visible
+				visible === 'true' ? visible = 'false' : visible
+			})
+		}					
+	}
+
+	visibleToggler (form) {
+		const v = this.v
+		if (v) v === 'false' ? this.buttonsOff(v, form) : v = 'false'
+	}
+
+	openForm () {
+		const form = document.querySelector('#form')
+		console.log(form)
+		if (form && form.classList.contains('_none')) {
+			this.visibleToggler(form)							
+			this.createInputs(form)
+			this.createFormButton(form)
+			form.classList.remove('_none')			
+		}
+	}
+
+	init (e) {
+		try {
+			if (this.t.id === 'add') {
+				new Promise((resolve, reject) => {
+					closeAll(this.formId)
+					resolve()
+				})
+				.then( () => this.createForm() )
+				.then( () => this.openForm() )				
+			}
+			if (this.t.id !== 'add') {
+				closeAll(this.formId)
+				this.buttonsOff(this.v, document.querySelector('#form'))
+			}			
+		} catch (e) { console.log(e) }
+	}
+}
+
+const exec = (e, id, func) => {
+	if (id && func) {
+		if (e.target.id === id) {
+			new Promise( (resolve) => {
+				func(e)
+				resolve()
+			})
+		}		
+	}		
+}
+
+const click = (e) => {
+	try {
+/*	  if (e.target.id === 'deleteUser') new requestData(e, URL).delete()
+	  if (e.target.id === 'editUser') new requestData(e, URL).put()
+	  if (e.target.id === 'postUser') new requestData(e, URL).post()
+	 	if (e.target.id === 'add') new toggleForm(e).init() */
+	 	exec(e, 'deleteUser', (e) => new requestData(e, URL).delete(e))
+	 	exec(e, 'editUser', (e) => new requestData(e, URL).put(e))
+	 	exec(e, 'postUser', (e) => new requestData(e, URL).post(e))
+	 	new toggleForm(e).init(e)
+	} catch (e) { 
+		console.log(e) 
+	}
+}
+
+const load = () => {
+	try {
+		new addClass('input', 'form-control').init()
+		addButtonsToTable() 
+		addButtons('#wrapper') 
+		new addClass('td', ['h-100', 'p-2', 'text-center']).init()		
+	} catch (e) { console.warn(e.message)  }
+}
+
+document.addEventListener("DOMContentLoaded", () =>  load() )
+window.addEventListener('click', click)
+
+</script> -->
+

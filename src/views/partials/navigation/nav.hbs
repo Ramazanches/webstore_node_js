@@ -1,0 +1,222 @@
+<nav class="menu__body">
+  <ul class="menu__list">
+
+    {{#each home4}}
+      <li>
+        <a 
+          href="{{this.linkHref}}" 
+          id="menuLink" 
+          data-goto={{this.linkContent}}
+        >
+          {{this.linkContent}}
+        </a>
+
+        {{#if this.subMenu}}
+          <ul class="menu__sublist" id="subMenu">
+            {{#each home5}} 
+              <li>
+                <a href={{this.sublinkHref}} class="menu__sublink">{{this.sublinkContent}}
+                </a>
+              </li>
+            {{/each}}                     
+          </ul>                      
+        {{/if}} 
+
+      </li>
+    {{/each}}
+    
+    {{> navigation/sign}} 
+    {{> navigation/logout}} 
+
+  </ul>
+</nav>
+
+<style>
+
+.menu__body {
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: var(--inner);
+}
+.menu__list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  column-gap: var(--inner);
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+.menu__list li a {
+  position: relative;
+  display: block;
+  color: #d9d9d9;
+  font-size: var(--p1);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all .3s ease 0s;
+}
+.menu__list li a:hover {
+  color: #fff;
+}
+.menu__list li a:after,
+.menu__list li.sign-icon a span:hover:after {
+  display: block;
+  content: '';
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  transition: all .3s ease 0s;
+}
+.menu__list li a:hover:after,
+.menu__list li.sign-icon a span:hover:after {
+  width: 100%;
+}
+.menu__list li.sign-icon a:hover:after {
+  height: unset;
+  width: 0%;
+}
+
+@media (max-width: 767px) {
+  .menu__list {
+    flex-direction: column;
+    column-gap: unset;
+    row-gap: var(--inner-lg);
+  }
+  .menu__list > li {
+    width: 100%;
+  }
+  .menu__list > li:last-child {
+    margin-bottom: 0;
+  }
+  .menu__list > li._active .menu__sublist {
+    display: block;
+  }
+  .menu__list li a {
+    width: fit-content;
+  }
+}
+
+.menu__sublist {
+  position: absolute;
+  left: -100px;
+  background-color: var(--sec_4);
+  padding: 15px;
+  min-width: 200px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+@media (min-width: 767px) {
+  .menu__sublist {
+    top: 58px;
+    transform: translate(0px, 10%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /*запрещает любое взаим-е мыши с объектом*/
+    transition: all .3s ease 0s;
+  }
+}
+@media (max-width: 767px) {
+  .menu__sublist {
+    position: relative;
+    background-color: #fff;
+    flex: 1 1 100%;
+  }
+}
+
+.menu__sublink {
+  color: #fff;
+  text-decoration: none;
+}
+.menu__sublink:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 767px) {
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 100px var(--inner);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .9);
+    clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
+    transition: all .3s ease 0s;
+    overflow: auto;
+    column-gap: unset;
+    flex-wrap: unset;
+  }
+  .menu__body._active {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  }
+  .menu__body::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 70px;
+    background-color: #054c91;
+    z-index: 2;
+  }
+}
+
+
+body._pc .menu__list > li:hover .menu__sublist {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+  pointer-events: all;
+}
+
+body._touch .menu__list > li {
+  display: flex;
+  align-items: center;
+}
+
+body._touch .menu__link {
+  flex: 1 1 auto;
+  text-decoration: none;
+}
+
+body._touch .menu__link:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 35px;
+  background: #fff;
+  height: 1px;
+  width: 0%;
+  transition: all 1s ease 0s;
+}
+
+body._touch .menu__link:hover:after {
+  width: 100%;
+}
+
+body._touch .menu__link.sublink:before {
+  content: '';
+  position: absolute;
+  top: 43%;
+  left: 110%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid #fff;
+  transition: transform .3s ease 0s;
+}
+
+body._touch .menu__list > li._active .menu__sublist {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+  pointer-events: all;
+}
+body._touch .menu__list > li._active .menu__link.sublink:before {
+  transform: rotate(-180deg);
+}
+</style>

@@ -1,0 +1,192 @@
+{{> css/adminStyles}}
+<div data-url="/admin/products/"></div>
+<div class="wrapper" id="wrapper" data-table="product">
+	
+	{{#if title}}
+		<h2>Товары</h2>
+	{{/if}}
+
+	{{#if products}}
+		{{else}}
+			<div class="table-container" style="display: none;">
+				<table class="table table-bordered">
+					<tr>
+						<th>ID</th>
+						<td><input value=""></td>
+					</tr>
+					<tr>
+						<th data-name="img">Путь изображения</th>
+						<td><input name="img" value=""></td>
+					</tr>
+					<tr>
+						<th data-name="imgAlt">Содержимое alt</th>
+						<td><input name="imgAlt" value=""></td>
+					</tr>
+					<tr>
+						<th data-name="price">Цена</th>
+						<td><input name="price" value=""></td>					
+					</tr>								
+					<tr>
+						<th data-name="prevPrice">Предыдущая цена</th>
+						<td><input name="prevPrice" value=""></td>
+					</tr>								
+					<tr>
+						<th data-name="rating">Рейтинг</th>
+						<td><input name="rating" value=""></td>
+					</tr>
+					<tr>
+						<th data-name="brand">Название бренда</th>
+						<td><input name="brand" value=""></td>
+					</tr>
+				<tr>
+					<th data-name="prodname">Название товара</th>
+					<td><input name="prodname" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="description">Описание</th>
+					<td><input name="description" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="size">Размер</th>
+					<td><input name="size" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="material">Материал</th>
+					<td><input name="material" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="colors">Цвет</th>
+					<td><input name="colors" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="shewingPeriod">Срок пошива</th>
+					<td><input name="shewingPeriod" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="deliveryTime">Срок доставки</th>
+					<td><input name="deliveryTime" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="likes">Количество лайков</th>
+					<td><input name="likes" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="rating">Рейтинг</th>
+					<td><input name="rating" value=""></td>
+				</tr>				<tr>
+					<th data-name="prodname">Название товара</th>
+					<td><input name="prodname" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="description">Описание</th>
+					<td><input type="textarea" name="description" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="size">Размер</th>
+					<td><input name="size" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="material">Материал</th>
+					<td><input name="material" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="colors">Цвет</th>
+					<td><input name="colors" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="shewingPeriod">Срок пошива</th>
+					<td><input name="shewingPeriod" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="deliveryTime">Срок доставки</th>
+					<td><input name="deliveryTime" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="optional">Дополнительно</th>
+					<td><input name="optional" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="likes">Количество лайков</th>
+					<td><input name="likes" value=""></td>
+				</tr>
+				<tr>
+					<th data-name="views">Количество просмотров</th>
+					<td><input name="views" value=""></td>
+				</tr>
+
+				</table>	
+			</div>
+			<p style="text-align: center; font-size: 1.5rem">Нет данных</p>
+	{{/if}}	
+	{{#each products}}					
+		<div class="table-container">
+			<table class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<td><input value="{{this._id}}"></td>
+				</tr>
+				<tr>
+					<th data-name="img">Путь изображения</th>
+					<td><input name="img" value="{{this.img}}"></td>
+				</tr>
+				<tr>
+					<th data-name="imgAlt">Содержимое alt</th>
+					<td><input name="imgAlt" value="{{this.imgAlt}}"></td>
+				</tr>
+				<tr>
+					<th data-name="price">Цена</th>
+					<td><input name="price" value="{{this.price}}"></td>					
+				</tr>								
+				<tr>
+					<th data-name="prevPrice">Предыдущая цена</th>
+					<td><input name="prevPrice" value="{{this.prevPrice}}"></td>
+				</tr>								
+				<tr>
+					<th data-name="brand">Название бренда</th>
+					<td><input name="brand" value="{{this.brand}}"></td>
+				</tr>
+				<tr>
+					<th data-name="prodname">Название товара</th>
+					<td><input name="prodname" value="{{this.prodname}}"></td>
+				</tr>
+				<tr>
+					<th data-name="description">Описание</th>
+					<td><input name="description" value="{{this.description}}"></td>
+				</tr>
+				<tr>
+					<th data-name="size">Размер</th>
+					<td><input name="size" value="{{this.size}}"></td>
+				</tr>
+				<tr>
+					<th data-name="material">Материал</th>
+					<td><input name="material" value="{{this.material}}"></td>
+				</tr>
+				<tr>
+					<th data-name="colors">Цвет</th>
+					<td><input name="colors" value="{{this.colors}}"></td>
+				</tr>
+				<tr>
+					<th data-name="shewingPeriod">Срок пошива</th>
+					<td><input name="shewingPeriod" value="{{this.shewingPeriod}}"></td>
+				</tr>
+				<tr>
+					<th data-name="deliveryTime">Срок доставки</th>
+					<td><input name="deliveryTime" value="{{this.deliveryTime}}"></td>
+				</tr>
+				<tr>
+					<th data-name="optional">Дополнительно</th>
+					<td><input name="optional" value="{{this.optional}}"></td>
+				</tr>
+				<tr>
+					<th data-name="likes">Количество лайков</th>
+					<td><input name="likes" value="{{this.likes}}"></td>
+				</tr>
+				<tr>
+					<th data-name="views">Количество просмотров</th>
+					<td><input name="views" value="{{this.views}}"></td>
+				</tr>
+			</table>	
+		</div>
+	{{/each}}	
+</div>
+
