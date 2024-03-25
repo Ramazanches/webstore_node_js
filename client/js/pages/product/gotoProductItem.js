@@ -7,7 +7,7 @@ function gotoProductItem (e) {
 	    console.log('yes')
 			const baseUrl = 'http://localhost:3000'
 			const id = e.target.dataset.id
-			const url = `/products/${id}`
+			const url = `/products/single?id=${id}`
 			window.location.href = url
 		}
 	} catch (e) {

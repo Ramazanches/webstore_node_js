@@ -1,5 +1,5 @@
 
-import { addAttribute } from '../utils/addAttribute.js'
+import { addAttribute } from '../../modules/helpers/addAttribute.js'
 
 function setDataAttributes () {
 	const items = document.querySelectorAll('#productItem')

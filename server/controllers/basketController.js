@@ -11,9 +11,7 @@ class BasketController {
 				email: email
 			})
 			const newData = user.basket.concat(data)
-			console.log(newData)
 			user.basket = [...new Set(newData)]
-			console.log(user)		
 
 			user.save()
 		} catch (e) {
@@ -24,7 +22,32 @@ class BasketController {
 
 	async getAll (req, res) {
 		try {
-			
+			let { email } = req.cookies,
+					products = [],
+					user
+
+			if (email) {
+				user = await User.findOne({ email: email })
+			}
+				
+			if (user) {
+				new Promise(async (resolve) => {
+					for (let i = 0; i < user.basket.length; i++) {
+						const id = user.basket[i]
+						const item = await Product.findOne({_id: id}).lean().exec()
+						if (item) products.push(item)
+					}
+					resolve()				
+				})
+				.then(() => {
+					res.render('basket.hbs', {
+						products: products
+					})				
+				})				
+			} else {
+				return ApiError.Unauthorized('Пользователь не найден')
+			}
+
 		} catch (e) {
 			console.warn(e)
 		}
@@ -33,7 +56,19 @@ class BasketController {
 	async deleteOne (req, res) {
 		try {
 
-			const { id } = req.body
+			let user,
+					{ id } = req.params,
+					{ email } = req.cookies
+				
+			if (email) {
+				user = await User.findOne({ email: email })
+				if (user.likes.length > 0) {
+					user.likes = user.likes.filter(item => {
+						item !== id
+					})
+					user.save()
+				}
+			}
 			
 		} catch (e) {
 			console.warn(e)
@@ -42,11 +77,21 @@ class BasketController {
 
 	async deleteAll (req, res) {
 		try {
-			
+
+			let user,
+					email = req.cookies.email
+				
+			if (email) {
+				user = await User.findOne({ email: email })
+				user.likes = []
+				user.save()
+			}
+
 		} catch (e) {
 			console.warn(e)
 		}
 	}
+
 }
 
 module.exports = new BasketController

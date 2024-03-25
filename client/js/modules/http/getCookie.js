@@ -1,6 +1,8 @@
 function getCookie(name) {
-  const replace = name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')
-  let matches = document.cookie.match(new RegExp("(?:^|; )" + replace + "=([^;]*)"))
+  const str = /([\.$?*|{}\(\)\[\]\\\/\+^])/g
+  const replace = name.replace(str, '\\$1')
+  const regexp = new RegExp("(?:^|; )" + replace + "=([^;]*)")
+  let matches = document.cookie.match(regexp)
   return matches ? decodeURIComponent(matches[1]) : undefined
 }
 

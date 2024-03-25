@@ -7,23 +7,23 @@
 	}
 
 	.item__button {
-	  position: relative;
-	  padding: 0 2px;
-	  width: 35px;
-	  height: 30px;
-	  outline: none;
-	  color: #473b3b;
-	  background: #ffffff;
-	  font-size: 14px;
-	  font-weight: bold;
-	  border-radius: 8px;
-	  display: flex;
+    position: relative;
+    padding: 0 2px;
+    width: 45px;
+    height: 35px;
+    outline: none;
+    color: #473b3b;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    display: flex;
     flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  transition: all .3s cubic-bezier(0.4, 0, 1, 1) 0s;
-	  transform: translateY(50px);
-	  cursor: pointer;	  
+    align-items: center;
+    justify-content: center;
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1) 0s;
+    transform: translateY(50px);
+    cursor: pointer;  
 	}
 	.item__button * {
 	  pointer-events: none;		
@@ -43,6 +43,15 @@
 	  cursor: pointer;  
 	}
 
+	.item__button._like svg {
+	  transition: all .5s ease 0s;
+	  display: none;	  
+	}
+
+	.item__button._like svg._active {
+		display: block !important;
+	}
+
 	.item__button svg path {
 	  stroke: #357aab;
 	  fill: #357aab;
@@ -51,11 +60,10 @@
 
 	.item__button span {
     position: relative;
-    top: 1px;
-    font-weight: 200;
+    font-weight: 700;
     width: 100%;
     text-align: center;
-    font-size: 10px;
+    font-size: 11px;
     z-index: 2;
 	}
 </style>

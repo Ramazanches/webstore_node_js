@@ -52,8 +52,7 @@ class homeAdminController {
 		} 
 		catch (e) { 
 			console.warn('Error' + e.message) 
-		} 
-		console.log(body)
+		}
 	}
 
 	async delete (req, res) {
@@ -109,7 +108,6 @@ class homeAdminController {
 		catch (e) { 
 			console.warn('Error' + e.message) 
 		}		
-		console.log(body)	
 		requestResult(req, res, result)			
 	}	
 

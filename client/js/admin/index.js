@@ -1,4 +1,4 @@
-import {setClass, addClasses} from '../modules/utils/addClass.js'
+import {setClass, addClasses} from '../modules/helpers/addClass.js'
 import formToggler from './formToggler.js'
 import edit from './edit.js'
 import post from './post.js'

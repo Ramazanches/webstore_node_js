@@ -10,10 +10,11 @@
 	<a href="/auth/signin" class="sign__link">Тогда не теряйте время!</a>
 	<p class="sign__text">Welcome!!!</p>		
 
-
-	<button class="info" id="roleInfo"></button>
-
-	<button id="role" class="role">Добавить роли в БД</button>	
+	<p class="sign__text">
+		<a href="/auth/admin/signup" class="sign__link">
+			Регистрация админ пользователя
+		</a>
+	</p>
 
 </div>
 
@@ -21,36 +22,36 @@
 {{> css/formStyles}}
 
 <script>
-// document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
 
-// 	const form = document.forms['signup_form']
-// 	form.addEventListener('submit', async (e) => {
-// 		try {
-// 			e.preventDefault()
-// 			const arr = []
-// 			for (let item of new FormData(form)) {
-// 				arr.push(item)
-// 			}
-// 			const data = JSON.stringify(Object.fromEntries(arr))
-// 			const email = form.elements[0].value
-// 			const redirect = (url) => window.location.href = url
+	const form = document.forms['signup_form']
+	form.addEventListener('submit', async (e) => {
+		try {
+			e.preventDefault()
+			const arr = []
+			for (let item of new FormData(form)) {
+				arr.push(item)
+			}
+			const data = JSON.stringify(Object.fromEntries(arr))
+			const email = form.elements[0].value
+			const redirect = (url) => window.location.href = url
 
-// 			await fetch('/auth/registration', {
-// 				method: 'POST',
-// 				body: data,
-// 				headers: {
-// 					'Accept': 'application/json',
-// 					'Content-Type': 'application/json'
-// 				}
-// 			})
-// 			.then(res => redirect('/home'))
+			await fetch('/auth/registration', {
+				method: 'POST',
+				body: data,
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				}
+			})
+			.then(res => redirect('/home'))
 						
-// 		} catch (e) {
-// 			console.warn(e)
-// 		}
+		} catch (e) {
+			console.warn(e)
+		}
 
-// 	})
+	})
 
-// });
+});*/
 
 </script>

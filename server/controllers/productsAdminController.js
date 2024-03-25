@@ -44,15 +44,17 @@ class productsAdminController {
 	}
 
 	async update (req, res) {
-		let body = req.body,
-				result,
-				id = body._id,
-				table = body.table,
-				product = new Product(body)
+		try {		
+			let body = req.body,
+					result,
+					id = body._id,
+					table = body.table,
+					product = new Product(body)
 
-		if (!req.body) return sendStatus(400)	
+			if (!req.body) {
+				return sendStatus(400)
+			}
 
-		try {
 			table == 'product' ? 
 			result = await Product.findOneAndUpdate({_id: id}, product, {new: true}) :
 			console.log('Set attribute data-table')	
@@ -60,7 +62,6 @@ class productsAdminController {
 		catch (e) { 
 			console.warn('Error' + e.message) 
 		}
-		console.log(req.body)
 		requestResult(req, res, result)
 	}	
 }

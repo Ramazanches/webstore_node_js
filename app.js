@@ -5,6 +5,7 @@ const path = require("path"),
 			app = express(),
 			cors = require('cors'),
 			cookieParser = require('cookie-parser'),
+			compression = require('compression'),
 			mongoose = require("mongoose"),
 			hbs = require("hbs"),
 			expressHbs = require("express-handlebars"),
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(__dirname + "/client"))
 app.use(express.json())
 app.use(cookieParser())
+app.use(compression())
 app.use('/', router)
 app.enable('view cache')
 

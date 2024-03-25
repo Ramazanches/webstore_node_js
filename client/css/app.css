@@ -86,13 +86,7 @@ figure {
 }
 
 section:not(:first-child) {
-	padding: var(--inner);
-}
-
-.wrapper {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+	padding: var(--inner-lg);
 }
 
 main {
@@ -102,5 +96,13 @@ main {
 	flex: 1 1 auto;
 }
 
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
 
+._hidden {
+	display: none !important;
+}
 

@@ -1,6 +1,30 @@
-import { signSvg, logoSvg, roleSvg, currencySvg } from './Icons.js'
+import { 
+	signSvg, 
+	logoSvg, 
+	roleSvg, 
+	currencySvg, 
+	basketAdd,
+	basketDelete,
+	heart, 
+} from './Icons.js'
 
 export const dataIcons = {
-	nodes: ['#signLink', '#logo', '#roleInfo', '#rub'],
-	icons: [signSvg, logoSvg, roleSvg, currencySvg]
+	nodes: [
+		'#signLink', 
+		'#logo', 
+		'#roleInfo', 
+		'#rub', 
+		'#basketAdd',
+		'#basketDelete',
+		'#heart',
+	],
+	icons: [
+		signSvg, 
+		logoSvg, 
+		roleSvg, 
+		currencySvg, 
+		basketAdd, 
+		basketDelete,
+		heart,
+	]
 }

@@ -9,6 +9,13 @@ export const request = async (url, $method = 'GET', data = null, type = 'json') 
 					headers: $headers 
 				}
 
+			if (typeof data === 'string') {
+				type = 'text'
+				$headers = {
+					'Accept': 'text/html',
+					'Content-Type': 'text/html'
+				}				
+			}
 
 			if (data) {
 				type === 'json' ?
@@ -22,9 +29,9 @@ export const request = async (url, $method = 'GET', data = null, type = 'json') 
 			}
 
 			const res = await fetch(url, config)
-			console.log(config)
+			console.log(res)
 
-			return res
+			return res.json()
 
 	} catch (e) {
 		console.log(e) 

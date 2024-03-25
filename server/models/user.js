@@ -6,8 +6,10 @@ const User = new Schema({
 	isActivated: {type: Boolean, default: false},
 	activationLink: {type: String}, //Ссылка активации аккаунта по почте
 	roles: {type: Array, ref: 'Role'},
-	basket: {type: [String], default: []}
-}, {
+	basket: {type: [String], default: []},
+	likes: {type: [String], default: []},
+}, 
+{
 	versionKey: false
 })
 

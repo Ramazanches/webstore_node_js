@@ -6,35 +6,38 @@ class Concealer {
 	constructor (id, config) {
 		this.id = id
 		this.config = config
-		this.url = new URL('http://localhost:3000/auth/user')
+		this.url = '/auth/user'
 		this.nodes = document.querySelectorAll(this.id)
 	}
 
 	async forUsers () {
-		const user = await request(this.url)
-		if (user) {
-			const ADMIN = user.roles[0].value
-			const USER = user.roles[1].value
-			if (this.nodes.length > 0) {
-				this.nodes.forEach( node => {
-					if (USER && USER === 'USER') {
-						node.classList.add('_hidden')
-					}
-					if (ADMIN && ADMIN === 'ADMIN') {
-						node.classList.add('_hidden')
-					}
-				})
-			}
+		try {
+			const user = await request(this.url)
+			if (user) {
+				const ADMIN = user.roles[0].value
+				const USER = user.roles[1].value
+				console.log(user)
+				if (this.nodes.length > 0) {
+					this.nodes.forEach( node => {
+						if (!USER || USER !== 'USER') {
+							node.classList.add('_hidden')
+						}
+					})
+				}
+			}			
+		} catch (e) {
+			console.warn(e)
 		}
+
 	}
 
 	async forAdmins () {
 		const user = await request(this.url)
 		if (user) {
-			const role = user.roles[1].value
+			const ADMIN = user.roles[1].value
 			if (this.nodes.length > 0) {
 				this.nodes.forEach( node => {
-					if (role && role === 'ADMIN') {
+					if (!ADMIN || ADMIN !== 'ADMIN') {
 						node.classList.add('_hidden')
 					}
 				})

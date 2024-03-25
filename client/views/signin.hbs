@@ -53,7 +53,10 @@
 					setCookie(cookieName, email, {secure: true, 'max-age': 3600})					
 				}
 			})
-			.then(res => redirect('/home'))
+			.then(res => {
+				// redirect('/home')
+				console.log(res)
+			})
 
 		} catch (e) {
 			console.warn(e)

@@ -1,41 +1,70 @@
-import {isMobile} from '../utils/isMobile.js'
+import { isMobile } from '../helpers/isMobile.js'
 
-const menuToggler = (e, target, body) => {
+// const menuToggler = (e, target, body) => {
 
-  e.preventDefault()
+//   e.preventDefault()
 
-  const icon = document.querySelector(target),
-        menu = document.querySelector(body),
-        on = () => {
-          document.body.classList.add('_lock')
-          icon.classList.add('_active')
-          menu.classList.add('_active')  
-        },
-        off = () => {
-          document.body.classList.remove('_lock')
-          icon.classList.remove('_active')
-          menu.classList.remove('_active')  
-        },
-        toggle = () => {
-          if (icon && menu) {
-            icon.classList.contains('_active') ? off() : on()   
-          }
-        } 
-        toggle()    
-}    
+//   const icon = document.querySelector(target),
+//         menu = icon.parentElement.querySelector(body)
+//   if (icon && menu) {
+//     document.body.classList.toggle('_lock')
+//     icon.classList.toggle('_active')
+//     menu.classList.toggle('_active')  
+//   }
 
-function menuToggle (e) {
-  const t = e.target,
-        icon = '.menu__icon',
-        menu = '.menu__body',
-        sub = '.menu__sublink'
+//        on = () => {
+//         document.body.classList.add('_lock')
+//         icon.classList.add('_active')
+//         menu.classList.add('_active')  
+//       },
+//       off = () => {
+//         document.body.classList.remove('_lock')
+//         icon.classList.remove('_active')
+//         menu.classList.remove('_active')  
+//       },
+//       toggle = () => {
+//         if (icon && menu) {
+//           icon.classList.contains('_active') ? off() : on()   
+//         }
+//       } 
+//       toggle()    
+// }    
 
-  if (isMobile.any()) {
-    if (icon && t.closest(icon)) {
-      menuToggler(e, icon, menu)        
+function menuToggle (e, target, menu) {
+  try {
+    if (isMobile.any()) {
+      if (e.target.closest(target)) {
+
+        e.preventDefault()
+
+        const link = document.querySelector(target),
+              body = link.parentElement.querySelector(menu),
+              on = () => {
+                document.body.classList.add('_lock')
+                link.classList.add('_active')
+                body.classList.add('_active')  
+              },
+              off = () => {
+                document.body.classList.remove('_lock')
+                link.classList.remove('_active')
+                body.classList.remove('_active')  
+              }
+
+        if (link && body) {
+          link.classList.contains('_active') ? 
+          off() : 
+          on()
+        }
+
+      }
     }
+    else {
+      document.body.classList.add('_pc')
+    }    
+  } catch (e) {
+    console.warn(e)
   }
-  else document.body.classList.add('_pc')
+
 }
 
 export default menuToggle

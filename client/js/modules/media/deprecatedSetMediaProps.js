@@ -1,6 +1,5 @@
 import {dataMedia} from '../../store/dataMedia.js'
 
-
 export class SetProp {
 
 	constructor(arr, type) {

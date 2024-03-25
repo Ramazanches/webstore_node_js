@@ -16,7 +16,7 @@ const Product = new Schema({
 	shewingPeriod: { type: String },
 	deliveryTime: { type: String },
 	optional: {type: String },
-	likes: { type: Number, default: null},
+	likes: { type: [String], requred: true},
 	views: { type: Number, default: 0},	
 })
 

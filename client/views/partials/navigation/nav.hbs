@@ -6,6 +6,7 @@
         <a 
           href="{{this.linkHref}}" 
           id="menuLink" 
+          class="menu__link"
           data-goto={{this.linkContent}}
         >
           {{this.linkContent}}
@@ -15,18 +16,18 @@
           <ul class="menu__sublist" id="subMenu">
             {{#each home5}} 
               <li>
-                <a href={{this.sublinkHref}} class="menu__sublink">{{this.sublinkContent}}
+                <a href={{this.sublinkHref}} class="menu__sublink">
+                  {{this.sublinkContent}}
                 </a>
               </li>
             {{/each}}                     
           </ul>                      
-        {{/if}} 
-
+        {{/if}}
+         
       </li>
     {{/each}}
-    
+
     {{> navigation/sign}} 
-    {{> navigation/logout}} 
 
   </ul>
 </nav>
@@ -104,10 +105,14 @@
   padding: 15px;
   min-width: 200px;
   list-style-type: none;
+  display: none;
+}
+.menu__sublist._active {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
 }
+
 @media (min-width: 767px) {
   .menu__sublist {
     top: 58px;
@@ -133,7 +138,6 @@
 .menu__sublink:hover {
   text-decoration: underline;
 }
-
 
 @media (max-width: 767px) {
   .menu__body {
@@ -165,7 +169,6 @@
     z-index: 2;
   }
 }
-
 
 body._pc .menu__list > li:hover .menu__sublist {
   opacity: 1;

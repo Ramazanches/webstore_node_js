@@ -3,9 +3,16 @@
   <div class="header__container">
     {{> header/logo}}
     <div class="header__menu menu">
-      {{> header/menu_icon}}
       {{> navigation/nav}}
+      {{> header/cart}}    
+      <a 
+        href="/products/liked" 
+        class="menu__link"
+        id="heart">
+      </a> 
+      {{> header/menu_icon}}
     </div>
+
   </div>
 </header>
 
@@ -21,7 +28,7 @@
   .header__container {
     margin: 0 auto;
     display: flex;
-    padding: 0 var(--inner);
+    padding: 0 var(--inner-lg);
     align-items: center;
     justify-content: space-between;
     min-height: 70px;
@@ -29,5 +36,14 @@
   .header__menu {
     display: flex;  
     align-items: center;  
+    column-gap: var(--inner);
+  }
+  .menu__link {
+    color: #fff;
+    text-decoration: none;
+  }
+  .menu__link svg {
+    width: 25px;
+    height: 25px;
   }
 </style>  

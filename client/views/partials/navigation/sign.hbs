@@ -1,18 +1,36 @@
-<li class="sign-icon"><a href="/auth/signin" id="signLink"><span>Войти</span></a></li> 
 
-<li class="sign-link"><a href="/auth/signin">Signin</a></li>
-<li class="sign-link"><a href="/auth/signup">Signup</a></li>
+{{#if auth}}
+  {{> navigation/logout}} 
+{{/if}}
+
+{{#if signinIcon}}
+  <li class="sign-link" title="Войти">
+    <a href="/auth/signin" id="signLink"></a>
+  </li>
+{{/if}}
+
+{{#if signin}}
+  <li class="sign-link">
+    <a href="/auth/signup">Регистрация</a>
+  </li>
+{{/if}}
+
+{{#if signup}}
+  <li class="sign-link">
+    <a href="/auth/signin">Войти</a>
+  </li>
+{{/if}}
+
 
 <style>
+
   .sign-icon {
-    display: none;
+    display: flex;  
   }
+
   @media (max-width: 767px) {
     .sign-link {
       display: none;
-    }
-    .sign-icon {
-      display: flex;  
     }
     .sign-icon a {
       display: flex !important;  
@@ -20,4 +38,5 @@
       column-gap : 10px;
     }
   }
+
 </style>

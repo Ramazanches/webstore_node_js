@@ -14,20 +14,22 @@ const express = require('express'),
 				check('email').isEmail(),
 				check('password', lengthMsg).isLength({min: 4, max: 25}),
 			],
-			middleware = [
+			authRole = [
 				authMiddleware, 
-				roleMiddleware(['USER', 'ADMIN'])
+				roleMiddleware(['USER'])
 			]
 
 router.post('/registration', validate, controller.registration)
 			.post('/login', jsonParser, controller.login)
 			.post('/logout', controller.logout)
+			.post('/likes', controller.setLike)
 			.get('/activate/:link', controller.activate)
 			.get('/refresh', controller.refresh)
 			.get('/user', controller.getOne)
-			.get('/users', middleware, controller.getUsers)			
+			.get('/users', authRole, controller.getUsers)			
 			.get('/signin', controller.signin)
 			.get('/signup', controller.signup)
+			.get('/admin/signup', controller.signupAdmin)
 
 
 module.exports = router

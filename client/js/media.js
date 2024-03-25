@@ -1,4 +1,4 @@
-import setMediaProps from './modules/mediaQueries/setMediaProps.js'
+import setMediaProps from './modules/media/setMediaProps.js'
 
 if (document.readyState === 'interactive') {
 	window.addEventListener('DOMContentLoaded', setMediaProps)

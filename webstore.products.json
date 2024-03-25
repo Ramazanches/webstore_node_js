@@ -1,0 +1,215 @@
+[{
+  "_id": {
+    "$oid": "653eb404ef5e9956721d44c9"
+  },
+  "table": "product",
+  "img": "/img/products/1.jpg",
+  "imgAlt": "alt",
+  "price": 40,
+  "prevPrice": 80,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 4,
+  "colors": "#349ce5",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "description": "Текст с описанием товара...",
+  "material": "Хлопок",
+  "size": "XXL",
+  "shewingPeriod": "2 дня",
+  "deliveryTime": "9 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb5abc461d94af3b26ce7"
+  },
+  "table": "product",
+  "img": "/img/products/2.jpg",
+  "imgAlt": "alt",
+  "price": 60,
+  "prevPrice": 100,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 4,
+  "colors": "#5d4bcb",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "XL",
+  "material": "Хлопок",
+  "shewingPeriod": "3 дня",
+  "deliveryTime": "7 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb5e7c461d94af3b26cea"
+  },
+  "table": "product",
+  "img": "/img/products/3.jpg",
+  "imgAlt": "alt",
+  "price": 80,
+  "prevPrice": 100,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 5,
+  "colors": "#aa4bcb",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "L",
+  "material": "Кожа",
+  "shewingPeriod": "2 дня",
+  "deliveryTime": "6 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb60fc461d94af3b26ced"
+  },
+  "table": "product",
+  "img": "/img/products/4.jpg",
+  "imgAlt": "alt",
+  "price": 60,
+  "prevPrice": 100,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 4,
+  "colors": "#2093c7",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "S",
+  "material": "Кожа",
+  "shewingPeriod": "4 дня",
+  "deliveryTime": "5 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb642c461d94af3b26cf0"
+  },
+  "table": "product",
+  "img": "/img/products/5.jpg",
+  "imgAlt": "alt",
+  "price": 90,
+  "prevPrice": 140,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 5,
+  "colors": "#20c1c7",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "XS",
+  "material": "Синтетика",
+  "shewingPeriod": "4 дня",
+  "deliveryTime": "8 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb673c461d94af3b26cf3"
+  },
+  "table": "product",
+  "img": "/img/products/6.jpg",
+  "imgAlt": "alt",
+  "price": 40,
+  "prevPrice": 70,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 4,
+  "colors": "#20c751",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "XXL",
+  "material": "Дермантин",
+  "shewingPeriod": "2 дня",
+  "deliveryTime": "4 дня"
+},
+{
+  "_id": {
+    "$oid": "653eb6b0c461d94af3b26cf6"
+  },
+  "table": "product",
+  "img": "/img/products/7.jpg",
+  "imgAlt": "alt",
+  "price": 80,
+  "prevPrice": 110,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 3,
+  "colors": "#25392b",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "description": "Текст с описанием товара...",
+  "size": "XXXL",
+  "material": "Кожа",
+  "deliveryTime": "1 неделя"
+},
+{
+  "_id": {
+    "$oid": "653eb6d0c461d94af3b26cf9"
+  },
+  "table": "product",
+  "img": "/img/products/8.jpg",
+  "imgAlt": "alt",
+  "price": 55,
+  "prevPrice": 120,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 5,
+  "colors": "#d3a425",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "L",
+  "material": "Синтетика",
+  "shewingPeriod": "3 дня",
+  "deliveryTime": "5 дней"
+},
+{
+  "_id": {
+    "$oid": "653eb7943bac5b1ce7198736"
+  },
+  "table": "product",
+  "img": "/img/products/9.jpg",
+  "imgAlt": "alt",
+  "price": 30,
+  "prevPrice": 50,
+  "brand": "BrandName",
+  "prodname": "ProductName",
+  "__v": 0,
+  "rating": 2,
+  "colors": "#914c09",
+  "description": "Текст с описанием товара...",
+  "likes": [
+    ""
+  ],
+  "views": 0,
+  "size": "S",
+  "material": "Хлопок",
+  "shewingPeriod": "1 день",
+  "deliveryTime": "1 неделя"
+}]

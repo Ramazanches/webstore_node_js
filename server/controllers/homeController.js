@@ -19,7 +19,6 @@ class homeController {
 					_home6 = await Home6.find({}).lean(),
 					_home7 = await Home7.find({}).lean(),
 					product = await Product.find({}).lean().limit(6).exec(),
-
 					render = () => {
 						res.render("home.hbs", {
 							home1: _home1,
@@ -29,7 +28,9 @@ class homeController {
 							home5: _home5,
 							home6: _home6,
 							home7: _home7,
-							products: product
+							products: product,
+							signinIcon: true,
+							auth: req.cookies.refreshToken !== undefined
 						})
 					}
 		

@@ -1,0 +1,81 @@
+<section class="liked-products products-liked">
+	{{#if products}}
+		<h3 class="products__title">Товары которые вам понравились:</h3>
+		<ul class="products__list list__product">
+			{{#each products}}
+				<li 
+					class="list__item" 
+					id="productItem" 
+					data-id={{this._id}}
+				>
+					<img 
+						src={{this.img}} 
+						alt={{this.imgAlt}}
+						class="list__image"
+						width="150"
+						height="150"
+					>
+					<div class="list__content">
+						<h4 class="list__brand">{{this.brand}}</h4>
+						<h5 class="list__product">{{this.prodname}}</h5>
+						<ul class="list__char">
+							<li class="rating">Рейтинг: {{this.rating}}</li>
+							<li class="price">Цена: {{this.price}}</li>
+							<li class="views">Просмотры: {{this.views}}</li>
+						</ul>
+						<h6>Описание:</h6>	
+						<p class="list__desc">{{this.description}}</p>
+					</div>	
+				</li>
+			{{/each}}
+		</ul>
+		{{else}}
+			<h3 class="products__title">Товаров нет!</h3>
+		{{/if}}
+
+
+</section>
+
+
+<style>
+	.liked-products {
+		background: rgb(255 255 255 / 90%);
+	}
+	.products__title {
+		margin: var(--inner) 0;
+		color: rgb(30, 21, 0);
+	}	
+	.products {}
+	.products__list {
+		display: flex;
+		flex-direction: column;	
+		row-gap: var(--inner);
+	}
+	.list__item {
+    display: flex;
+    column-gap: var(--inner-md);
+    padding: var(--inner-md);
+    border: 1px solid rgb(175 175 175);
+	}
+	.list__image {}
+
+	.list__content {
+		display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+	}
+	.list__content * {
+		color: rgb(30, 21, 0);
+	}
+	.list__brand {}
+	.list__product {}
+	.list__char {
+		display: flex;
+    column-gap: 15px;
+	}
+	.rating {}
+	.price {}
+	.views {}
+	.list__desc {}
+
+</style>

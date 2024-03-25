@@ -4,8 +4,9 @@ const controller = require("../controllers/productsController"),
 			jsonParser = express.json()
 
 router.get("/", controller.getAll)
-			.get("/:id", controller.getOne)
-
+			.get("/single/", controller.getOne)	
+			.get("/liked", controller.getLikedProducts)
+			.post('/likes', controller.setUserLike)
 
 module.exports = router
 

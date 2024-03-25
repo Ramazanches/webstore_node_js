@@ -1,4 +1,4 @@
-import removeAll from '../modules/utils/removeAll.js'
+import removeAll from '../modules/helpers/removeAll.js'
 
 function reload (e, id, callback, form) {
 

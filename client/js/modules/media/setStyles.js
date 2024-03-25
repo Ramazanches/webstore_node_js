@@ -20,9 +20,13 @@ export class SetProp {
 	}
 
 	resizeXxl = () => this.setValue(this.Xxl, this.Xl, this._xl, this._xxl)
+
 	resizeXl = () => this.setValue(this.Xl, this.Lg, this._lg, this._xl)
+
 	resizeLg = () => this.setValue(this.Lg, this.Md, this._md, this._lg)
+
 	resizeMd = () => this.setValue(this.Md, this.Sm, this._sm, this._md)
+
 	resizeSm = () => this.setValue(this.Sm, this.Xs, this._xs, this._sm)
 
 	setValue = (from, to, min, max) => {
@@ -33,7 +37,6 @@ export class SetProp {
 
 	computed = (from, to, min, max) => {
 		try {
-
 			let em = this.type === 'em',
 					rem = this.type === 'rem',
 					$from = min, 
@@ -46,6 +49,7 @@ export class SetProp {
 				start = from / 16
 				end = to / 16
 			}
+			
 			if (to > from) {
 				$from = max
 				$to = min
